@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: arbitrary
+commonLabels:
+  app: nginx
+bases:
+  - ../../base
+resources:
+  - ingress.yaml
+  - serviceaccount.yaml
+images:
+  - name: nginx
+    newTag: nginx:1.14.2  
